@@ -1,0 +1,10 @@
+{
+   "AppSettings": {
+      "SiteTitle": "EntityFrameworkExample"
+   },
+   "Data": {
+      "DefaultConnection": {
+         "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-EntityFrameworkExample;Trusted_Connection=True;MultipleActiveResultSets=true"
+      }
+   }
+}

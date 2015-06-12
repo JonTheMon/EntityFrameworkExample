@@ -1,0 +1,49 @@
+﻿@model EntityFrameworkExample.Models.ContactViewModel
+@addTagHelper "*, EntityFrameworkExample"
+
+<form asp-controller="Contact" asp-action="Edit" method="post" class="form-horizontal" role="form">
+   <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+
+   <fieldset>
+      <legend>Contact</legend>
+      <input type="hidden" asp-for="Id" />
+
+      <div class="editor-label">
+         <label asp-for="FirstName"></label>
+      </div>
+      <div class="editor-field">
+         <input asp-for="FirstName" />
+         <span asp-validation-for="FirstName" class="text-danger"></span>
+      </div>
+
+      <div class="editor-label">
+         <label asp-for="Birthdate"></label>
+      </div>
+      <div class="editor-field">
+         <date-edit asp-for="Birthdate"></date-edit>
+         <span asp-validation-for="Birthdate" class="text-danger"></span>
+      </div>
+
+
+   </fieldset>
+
+   @{
+      int i;
+      for (i = 0; i < Model.Addresses.Count; i++)
+      {
+         <address-edit asp-for="Addresses[i]"></address-edit>
+      }
+      <input type="hidden" value="@i" class="nextAddrIndex" />
+   }
+   <span class="address-block-dest"></span>
+   <input type="submit" value="Save" class="btn btn-default" />
+</form>
+
+<input type="button" class="add-address-block" value="New Address" />
+<span style="display:none" class="address-block-template">
+   @{
+      var templateAddr = new EntityFrameworkExample.Models.AddressViewModel();
+      <address-edit asp-for="@templateAddr"></address-edit>
+   }
+</span>
+

@@ -1,0 +1,50 @@
+﻿@model EntityFrameworkExample.Models.AddressViewModel
+
+<div class="address-block">
+
+   <input type="hidden" name="@ViewBag.listIndex" value="@ViewBag.listVal" />
+   <input type="hidden" asp-for="Id" />
+   <div class="editor-label">
+      <label asp-for="Street"></label>
+   </div>
+   <div class="editor-field">
+      <input asp-for="Street" />
+      <span asp-validation-for="Street" class="text-danger"></span>
+   </div>
+
+   <div class="float-field-wrapper">
+      <div class="float-field">
+         <div class="editor-label">
+            <label asp-for="City"></label>
+         </div>
+         <div class="editor-field">
+            <input asp-for="City" />
+            <span asp-validation-for="City" class="text-danger"></span>
+         </div>
+      </div>
+      <div class="float-field">
+         <div class="editor-label">
+            <label asp-for="State"></label>
+         </div>
+         <div class="editor-field">
+            <input asp-for="State" />
+            <span asp-validation-for="State" class="text-danger"></span>
+         </div>
+      </div>
+   </div>
+
+   <div class="float-field-wrapper">
+      <div class="float-field">
+         <div class="editor-label">
+            <label asp-for="Zip"></label>
+         </div>
+         <div class="editor-field">
+            <input asp-for="Zip" />
+            <span asp-validation-for="Zip" class="text-danger"></span>
+         </div>
+      </div>
+      <div class="float-field">
+      </div>
+   </div>
+   <input type="button" value="Delete" class="delete-address-block" />
+</div>
